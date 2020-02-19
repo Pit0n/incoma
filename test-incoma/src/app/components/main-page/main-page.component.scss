@@ -1,0 +1,39 @@
+:host {
+  height: 100%;
+  display: flex;
+}
+
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 50px 100%;
+  grid-template-areas:
+    "h h"
+    "m c";
+  flex: 1;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.header {
+  grid-area: h;
+  background: blue;
+  color: white;
+}
+
+.menu {
+  grid-area: m;
+  background: royalblue;
+  color: white;
+}
+
+.content {
+  grid-area: c;
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 50px);
+  background: gray;
+}
+
+
