@@ -5,7 +5,6 @@
 
 .container {
   display: grid;
-  grid-gap: 5px;
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 50px 100%;
   grid-template-areas:
@@ -18,14 +17,14 @@
 
 .header {
   grid-area: h;
-  background: blue;
-  color: white;
+  background: #0049b0;
+  color: #fff;
 }
 
 .menu {
   grid-area: m;
-  background: royalblue;
-  color: white;
+  background: #f4f5f7;;
+  color: #42526e;
 }
 
 .content {
@@ -33,7 +32,7 @@
   display: flex;
   flex: 1;
   height: calc(100vh - 50px);
-  background: gray;
+  background: #f4f5f7;
 }
 
 
