@@ -1,9 +1,11 @@
 <div class="container">
   <div class="header">
-    <app-header></app-header>
-  </div>
-  <div class="menu">
-    <app-menu></app-menu>
+    <p-menubar [model]="items">
+      <div class="ui-inputgroup">
+        <input type="text" pInputText placeholder="Search...">
+        <button pButton icon="pi pi-search" class="ui-button-warn"></button>
+      </div>
+    </p-menubar>
   </div>
   <div class="content">
     <router-outlet></router-outlet>

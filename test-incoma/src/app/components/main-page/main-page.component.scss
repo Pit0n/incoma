@@ -5,11 +5,9 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 50px 100%;
   grid-template-areas:
-    "h h"
-    "m c";
+    "h"
+    "c";
   flex: 1;
   height: 100%;
   overflow-y: hidden;
@@ -17,14 +15,6 @@
 
 .header {
   grid-area: h;
-  background: #0049b0;
-  color: #fff;
-}
-
-.menu {
-  grid-area: m;
-  background: #f4f5f7;;
-  color: #42526e;
 }
 
 .content {
@@ -32,7 +22,6 @@
   display: flex;
   flex: 1;
   height: calc(100vh - 50px);
-  background: #f4f5f7;
 }
 
 
