@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from "../../api/api.service";
 
 @Component({
   selector: 'app-search-result',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.getBooksList().subscribe(console.log);
   }
 
 }
