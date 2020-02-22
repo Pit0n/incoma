@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { ListComponent } from './shared/components/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     FavoritesComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
