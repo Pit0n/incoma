@@ -6,7 +6,7 @@ import { BookInfo } from "@sharedModels/book-info.type";
 
 
 export class ListDataSource extends DataSource<BookInfo | undefined> {
-  private cachedFacts = Array.from<BookInfo>({ length: 0 });
+  private cachedFacts = Array.from<BookInfo>({length: 0});
   private dataStream = new BehaviorSubject<(BookInfo | undefined)[]>(this.cachedFacts);
   private subscription = new Subscription();
   private pageSize = 10;
@@ -38,12 +38,10 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
   }
 
   private _fetchFactPage(): void {
-    for (let i = 0; i < this.pageSize; ++i) {
-      this.apiService.getBooksList().subscribe(res => {
-        this.cachedFacts = this.cachedFacts.concat(res);
-        this.dataStream.next(this.cachedFacts);
-      });
-    }
+    this.apiService.getBooksList().subscribe(res => {
+      this.cachedFacts = this.cachedFacts.concat(res);
+      this.dataStream.next(this.cachedFacts);
+    });
   }
 
   private _getPageForIndex(i: number): number {

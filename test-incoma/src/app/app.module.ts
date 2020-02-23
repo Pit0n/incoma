@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
-import { ListComponent } from './shared/components/list/list.component';
+import { ListItemComponent } from './shared/components/list-item/list-item.component';
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ListScrollerComponent } from './shared/components/list-scroller/list-scroller.component';
 
@@ -19,7 +19,7 @@ import { ListScrollerComponent } from './shared/components/list-scroller/list-sc
     MainPageComponent,
     FavoritesComponent,
     SearchResultComponent,
-    ListComponent,
+    ListItemComponent,
     ListScrollerComponent
   ],
   imports: [
