@@ -1,10 +1,7 @@
 <div class="container">
   <div class="header">
     <p-menubar [model]="items">
-      <div class="ui-inputgroup">
-        <input type="text" pInputText placeholder="Search...">
-        <button pButton icon="pi pi-search" class="ui-button-warn"></button>
-      </div>
+      <app-search-form></app-search-form>
     </p-menubar>
   </div>
   <div class="content">

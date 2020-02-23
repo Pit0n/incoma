@@ -1,0 +1,6 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div class="ui-inputgroup">
+    <input type="text" pInputText placeholder="Search..." formControlName="search">
+    <button type="submit" pButton icon="pi pi-search" class="ui-button-warn"></button>
+  </div>
+</form>
