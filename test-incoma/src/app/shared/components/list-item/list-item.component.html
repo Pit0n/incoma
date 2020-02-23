@@ -1,5 +1,10 @@
 <div class="wrapper" *ngIf="item">
-  <img [src]=item.volumeInfo?.imageLinks?.smallThumbnail alt="pic" height="90">
+  <ng-container *ngIf="item.volumeInfo?.imageLinks?.smallThumbnail; else noCover">
+    <img [src]=item.volumeInfo?.imageLinks?.smallThumbnail height="90">
+  </ng-container>
+  <ng-template #noCover>
+    <div class="no-cover"></div>
+  </ng-template>
   <div class="info">
     <div>
       <div class="title">

@@ -14,8 +14,6 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
 
   constructor(private apiService: ApiService) {
     super();
-    // Start with some data.
-    console.log('www');
     this._fetchFactPage();
   }
 
@@ -38,7 +36,8 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
   }
 
   private _fetchFactPage(): void {
-    this.apiService.getBooksList().subscribe(res => {
+    const page = this.lastPage * this.pageSize;
+    this.apiService.getBooksList(page).subscribe(res => {
       this.cachedFacts = this.cachedFacts.concat(res);
       this.dataStream.next(this.cachedFacts);
     });

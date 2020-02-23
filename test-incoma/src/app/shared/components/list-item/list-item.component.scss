@@ -39,9 +39,9 @@
 }
 
 .publisher {
-  color:#616161;
-  font-size:13px;
-  font-weight:400;
+  color: #616161;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .publisher__date {
@@ -59,4 +59,8 @@
   &:disabled {
     cursor: default;
   }
+}
+
+.no-cover {
+  height: 90px;
 }

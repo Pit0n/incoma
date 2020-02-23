@@ -11,7 +11,7 @@ export class SearchResultComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getBooksList().subscribe(console.log);
+
   }
 
 }
