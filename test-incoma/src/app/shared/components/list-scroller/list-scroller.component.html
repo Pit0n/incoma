@@ -1,0 +1,13 @@
+<cdk-virtual-scroll-viewport itemSize="100" class="example-viewport">
+  <li *cdkVirtualFor="let item of dataSource">
+
+    <div *ngIf="item" class="example-item">
+      <div class="">{{ item.id }}</div>
+      <div class="">{{ item.volumeInfo.title }}</div>
+    </div>
+    <div *ngIf="!item">
+      Loading ...
+    </div>
+
+  </li>
+</cdk-virtual-scroll-viewport>

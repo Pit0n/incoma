@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PrimeNgModule } from "./prime-ng.module";
-import { ApiService } from "./api/api.service";
+import { ApiService } from "@api/api.service";
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { ListComponent } from './shared/components/list/list.component';
+import { ScrollingModule } from "@angular/cdk/scrolling";
+import { ListScrollerComponent } from './shared/components/list-scroller/list-scroller.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { ListComponent } from './shared/components/list/list.component';
     MainPageComponent,
     FavoritesComponent,
     SearchResultComponent,
-    ListComponent
+    ListComponent,
+    ListScrollerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ScrollingModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

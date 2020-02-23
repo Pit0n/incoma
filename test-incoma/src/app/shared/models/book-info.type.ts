@@ -23,6 +23,5 @@ export type BookInfo = {
 }
 
 export type BooksList = {
-  totalItems: number,
   items: BookInfo[],
 }

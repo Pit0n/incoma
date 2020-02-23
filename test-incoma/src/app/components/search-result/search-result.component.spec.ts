@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpClientModule } from "@angular/common/http";
-import { ApiService } from "../../api/api.service";
+import { ApiService } from "@api/api.service";
 import { SearchResultComponent } from './search-result.component';
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 describe('SearchResultComponent', () => {
   let component: SearchResultComponent;
@@ -12,7 +13,8 @@ describe('SearchResultComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SearchResultComponent ],
       providers: [ApiService],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
