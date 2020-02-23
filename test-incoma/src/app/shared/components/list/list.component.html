@@ -1,1 +1,29 @@
-<p>list works!</p>
+<img [src]=item.volumeInfo.imageLinks.smallThumbnail alt="pic" height="90">
+<div class="info">
+  <div>
+    <div class="title" (click)="openUrl(item.accessInfo.webReaderLink)">
+      {{item.volumeInfo.title}}
+    </div>
+    <div class="authors">
+      {{item.volumeInfo.authors}}
+    </div>
+  </div>
+  <div class="publisher">
+  <span class="publisher__date">
+    {{item.volumeInfo.publishedDate | date:'dd MMMM yyyy'}}г.
+  </span>
+    <span class="publisher__name">
+    {{item.volumeInfo.publisher}}
+  </span>
+  </div>
+</div>
+<div class="action-button">
+  <p-button [label]="retailButtonText(item.saleInfo.retailPrice.amount)" (click)="openUrl(item.saleInfo.buyLink)"></p-button>
+</div>
+<div class="action-button">
+  <p-button class="ui-button-secondary" label="&#8195;В избранное" icon="pi pi-thumbs-up"></p-button>
+</div>
+<!--<div>-->
+<!--  {{item.accessInfo.webReaderLink}}-->
+<!--</div>-->
+
