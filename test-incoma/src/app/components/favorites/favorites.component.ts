@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { ListDataSource } from "../../shared/components/list-scroller/list-data-source";
-import { FilterService } from "@sharedServices/filter/filter.service";
 import { FavoritesService } from "@sharedServices/favorites/favorites.service";
 
 @Component({
@@ -16,14 +15,14 @@ export class FavoritesComponent implements OnInit, OnDestroy {
 
   private updateScrollList$ = this.favoritesService.updateScrollList$;
 
-  constructor(private favoritesService: FavoritesService, private filterService: FilterService) {
+  constructor(private favoritesService: FavoritesService,) {
   }
 
   ngOnInit(): void {
     this.updateScrollList$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => {
-        this.dataSource = new ListDataSource(this.favoritesService, this.filterService);
+        this.dataSource = new ListDataSource(this.favoritesService);
       });
   }
 
