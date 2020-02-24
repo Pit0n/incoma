@@ -1,10 +1,12 @@
-<cdk-virtual-scroll-viewport itemSize="138" class="example-viewport">
-  <div *cdkVirtualFor="let item of dataSource">
-    <div *ngIf="item" class="example-item">
-      <app-list-item [item]="item"></app-list-item>
+<ng-container *ngIf="dataSource">
+  <cdk-virtual-scroll-viewport itemSize="138" class="example-viewport">
+    <div *cdkVirtualFor="let item of dataSource">
+      <div *ngIf="item" class="example-item">
+        <app-list-item [item]="item"></app-list-item>
+      </div>
+      <div *ngIf="!item">
+        Loading ...
+      </div>
     </div>
-    <div *ngIf="!item">
-      Loading ...
-    </div>
-  </div>
-</cdk-virtual-scroll-viewport>
+  </cdk-virtual-scroll-viewport>
+</ng-container>

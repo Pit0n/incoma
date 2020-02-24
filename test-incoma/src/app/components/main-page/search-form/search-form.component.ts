@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { SearchService } from "@sharedServices/search/search.service";
 
 @Component({
   selector: 'app-search-form',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 })
 export class SearchFormComponent implements OnInit {
   public form: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private searchService: SearchService) { }
 
   ngOnInit() {
     this.initForm();
@@ -17,7 +18,7 @@ export class SearchFormComponent implements OnInit {
 
   public submitForm(): void {
     const searchControl = this.form.controls['search'];
-    console.log(searchControl.value);
+    this.searchService.setSearchTerm(searchControl.value);
     this.form.reset();
   }
 
