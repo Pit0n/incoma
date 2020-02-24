@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+  styleUrls: ['./search-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchFormComponent implements OnInit {
   public form: FormGroup;

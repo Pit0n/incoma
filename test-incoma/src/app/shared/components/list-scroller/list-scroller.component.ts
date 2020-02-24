@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ApiService } from "@api/api.service";
 import { ListDataSource } from "./list-data-source";
+import { FilterService } from "@sharedServices/filter/filter.service";
 
 @Component({
   selector: 'app-list-scroller',
@@ -11,7 +12,7 @@ import { ListDataSource } from "./list-data-source";
 export class ListScrollerComponent {
   public dataSource: ListDataSource;
 
-  constructor(private apiService: ApiService) {
-    this.dataSource = new ListDataSource(apiService);
+  constructor(private apiService: ApiService, private filterService: FilterService) {
+    this.dataSource = new ListDataSource(apiService, filterService);
   }
 }

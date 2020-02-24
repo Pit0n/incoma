@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@sharedModels/*": ["src/app/shared/models/*"],
+      "@sharedServices/*": ["src/app/shared/services/*"],
       "@api/*": ["src/app/api/*"]
     }
   },
