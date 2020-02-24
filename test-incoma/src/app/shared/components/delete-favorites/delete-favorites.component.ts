@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BookInfo } from "@sharedModels/book-info.type";
 import { FavoritesService } from "@sharedServices/favorites/favorites.service";
 
 @Component({
   selector: 'app-delete-favorites',
   templateUrl: './delete-favorites.component.html',
-  styleUrls: ['./delete-favorites.component.scss']
+  styleUrls: ['./delete-favorites.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DeleteFavoritesComponent {
   @Input()

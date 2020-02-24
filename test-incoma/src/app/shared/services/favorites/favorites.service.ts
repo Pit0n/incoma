@@ -3,36 +3,52 @@ import { BehaviorSubject, Observable, of } from "rxjs";
 import { SearchBookListInterface } from "@sharedModels/search-book-list.interface";
 import { LocalStorageService } from "@sharedServices/local-storage/local-storage.service";
 import { BookInfo } from "@sharedModels/book-info.type";
+import { VirtualScrollPageSize } from "../../consts/virtual-scroll-page-size.const";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService implements SearchBookListInterface {
+  public updateScrollList$ = new BehaviorSubject<boolean>(true);
   private keyStorage = 'bookList';
-  private favoriteList$ = new BehaviorSubject<BookInfo[]>(null);
-  private favoriteSet = new Set();
+  private favoriteMap = new Map();
+  private favoriteList: BookInfo[] = [];
+  private pageSize = VirtualScrollPageSize;
 
   constructor(private localStorage: LocalStorageService) {
-    this.favoriteList$.next(localStorage.get(this.keyStorage));
+    this.setFavoriteMapFromLocalStorage();
   }
 
   public getBooksList = (startIndex: number): Observable<BookInfo[]> => {
-    return of(null);
+    const list = this.favoriteList.slice(startIndex, startIndex + this.pageSize);
+
+    return of(list);
   };
 
   public save = (item: BookInfo) => {
-    this.favoriteSet.add(item);
+    if (this.favoriteMap.has(item.id)) {
+      return;
+    }
+
+    this.favoriteMap.set(item.id, item);
     this.updateFavoriteList();
   };
 
   public delete = (item: BookInfo) => {
-    this.favoriteSet.delete(item);
+    this.favoriteMap.delete(item.id);
     this.updateFavoriteList();
+    this.updateScrollList$.next(true);
   };
 
-  private updateFavoriteList(): void {
-    const list = [...this.favoriteSet];
+  private updateFavoriteList = () => {
+    const list = [...this.favoriteMap];
     this.localStorage.set(this.keyStorage, list);
-    this.favoriteList$.next(<BookInfo[]>list);
-  }
+    this.favoriteList = [...this.favoriteMap.values()];
+  };
+
+  private setFavoriteMapFromLocalStorage = () => {
+    const list = this.localStorage.get(this.keyStorage);
+    this.favoriteMap = new Map(list);
+    this.favoriteList = [...this.favoriteMap.values()];
+  };
 }

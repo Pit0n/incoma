@@ -1,1 +1,4 @@
-<app-list-item></app-list-item>
+<ng-container *ngIf="dataSource">
+  <app-filter-form></app-filter-form>
+  <app-list-scroller [dataSource]="dataSource" [isFavorites]="true"></app-list-scroller>
+</ng-container>

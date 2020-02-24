@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ListDataSource } from "../../shared/components/list-scroller/list-data-source";
+import { FilterService } from "@sharedServices/filter/filter.service";
+import { FavoritesService } from "@sharedServices/favorites/favorites.service";
 
 @Component({
   selector: 'app-favorites',
@@ -6,11 +9,16 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./favorites.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FavoritesComponent implements OnInit {
+export class FavoritesComponent {
+  public dataSource: ListDataSource;
 
-  constructor() { }
+  private updateScrollList$ = this.favoritesService.updateScrollList$;
 
-  ngOnInit() {
+  constructor(private favoritesService: FavoritesService, private filterService: FilterService) {
+
+    this.updateScrollList$.subscribe(() => {
+      console.log('w');
+      this.dataSource = new ListDataSource(this.favoritesService, this.filterService);
+    });
   }
-
 }

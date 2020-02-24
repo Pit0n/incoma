@@ -4,6 +4,8 @@ import { map, takeUntil, tap } from "rxjs/operators";
 import { BookInfo } from "@sharedModels/book-info.type";
 import { FilterService } from "@sharedServices/filter/filter.service";
 import { SearchService } from "@sharedServices/search/search.service";
+import { SearchBookListInterface } from "@sharedModels/search-book-list.interface";
+import { VirtualScrollPageSize } from "../../consts/virtual-scroll-page-size.const";
 
 
 export class ListDataSource extends DataSource<BookInfo | undefined> {
@@ -11,10 +13,10 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
   private dataStream$ = new BehaviorSubject<(BookInfo | undefined)[]>(this.cachedList);
   // private booksList$ = new BehaviorSubject<BookInfo[]>([]);
   private unsubscribe$ = new Subject();
-  private pageSize = 10;
+  private pageSize = VirtualScrollPageSize;
   private lastPage = 0;
 
-  constructor(private searchService: SearchService, private filterService: FilterService) {
+  constructor(private searchService: SearchBookListInterface, private filterService: FilterService) {
     super();
     this._fetchListPage();
     // this.subscribeToFilteredDataStream();
@@ -44,6 +46,7 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
     const page = this.lastPage * this.pageSize;
 
     this.searchService.getBooksList(page).subscribe(res => {
+      console.log(res);
       this.cachedList = this.cachedList.concat(res);
       this.dataStream$.next(this.cachedList);
     });

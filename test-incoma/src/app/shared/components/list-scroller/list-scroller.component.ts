@@ -10,4 +10,8 @@ import { ListDataSource } from "./list-data-source";
 export class ListScrollerComponent {
   @Input()
   public dataSource: ListDataSource;
+  @Input()
+  public isFavorites: boolean = false;
+  @Input()
+  public isSearch: boolean = false;
 }
