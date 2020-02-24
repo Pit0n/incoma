@@ -15,6 +15,7 @@ import { ListItemComponent } from './shared/components/list-item/list-item.compo
 import { ListScrollerComponent } from './shared/components/list-scroller/list-scroller.component';
 import { SearchFormComponent } from './components/main-page/search-form/search-form.component';
 import { FilterFormComponent } from './shared/components/filter-form/filter-form.component';
+import { SearchService } from "@sharedServices/search/search.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { FilterFormComponent } from './shared/components/filter-form/filter-form
     ScrollingModule
   ],
   providers: [
-    ApiService,
   ],
   bootstrap: [AppComponent]
 })

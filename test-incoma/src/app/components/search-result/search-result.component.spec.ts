@@ -4,6 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ApiService } from "@api/api.service";
 import { SearchResultComponent } from './search-result.component';
 import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe('SearchResultComponent', () => {
   let component: SearchResultComponent;
@@ -12,8 +13,7 @@ describe('SearchResultComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SearchResultComponent ],
-      providers: [ApiService],
-      imports: [HttpClientModule],
+      imports: [HttpClientTestingModule],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();

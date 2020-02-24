@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchFormComponent } from './search-form.component';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;
@@ -12,6 +13,7 @@ describe('SearchFormComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SearchFormComponent ],
       providers: [FormBuilder],
+      imports: [HttpClientTestingModule],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
