@@ -16,6 +16,7 @@ import { SearchFormComponent } from './shared/components/search-form/search-form
 import { FilterFormComponent } from './shared/components/filter-form/filter-form.component';
 import { SaveFavoritesComponent } from './shared/components/save-favorites/save-favorites.component';
 import { DeleteFavoritesComponent } from './shared/components/delete-favorites/delete-favorites.component';
+import { EmptyPageComponent } from './shared/components/empty-page/empty-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DeleteFavoritesComponent } from './shared/components/delete-favorites/d
     SearchFormComponent,
     FilterFormComponent,
     SaveFavoritesComponent,
-    DeleteFavoritesComponent
+    DeleteFavoritesComponent,
+    EmptyPageComponent
   ],
   imports: [
     BrowserModule,

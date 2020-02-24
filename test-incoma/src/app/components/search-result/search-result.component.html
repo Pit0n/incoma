@@ -1,4 +1,9 @@
-<ng-container *ngIf="dataSource">
+<ng-container *ngIf="dataSource; else emptyPage">
   <app-filter-form></app-filter-form>
   <app-list-scroller [dataSource]="dataSource" [isSearch]="true"></app-list-scroller>
 </ng-container>
+<ng-template #emptyPage>
+  <app-empty-page>
+    Здесь ничего нет. Попробуйте что-нибудь поискать.
+  </app-empty-page>
+</ng-template>
