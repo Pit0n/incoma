@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { SearchService } from "@sharedServices/search/search.service";
-import { Links } from "../../../app-routing/links.enum";
+import { Links } from "../../../app-routing/links.const";
 
 @Component({
   selector: 'app-search-form',
