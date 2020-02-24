@@ -16,7 +16,7 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
   private pageSize = VirtualScrollPageSize;
   private lastPage = 0;
 
-  constructor(private searchService: SearchBookListInterface, private filterService: FilterService) {
+  constructor(private listService: SearchBookListInterface, private filterService: FilterService) {
     super();
     this._fetchListPage();
     // this.subscribeToFilteredDataStream();
@@ -45,8 +45,9 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
   private _fetchListPage(): void {
     const page = this.lastPage * this.pageSize;
 
-    this.searchService.getBooksList(page).subscribe(res => {
-      console.log(res);
+    this.listService.getBooksList(page)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(res => {
       this.cachedList = this.cachedList.concat(res);
       this.dataStream$.next(this.cachedList);
     });

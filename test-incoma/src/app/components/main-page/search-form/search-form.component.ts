@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { SearchService } from "@sharedServices/search/search.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-search-form',
@@ -10,7 +11,7 @@ import { SearchService } from "@sharedServices/search/search.service";
 })
 export class SearchFormComponent implements OnInit {
   public form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private searchService: SearchService) { }
+  constructor(private formBuilder: FormBuilder, private searchService: SearchService, private route: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -20,6 +21,7 @@ export class SearchFormComponent implements OnInit {
     const searchControl = this.form.controls['search'];
     this.searchService.setSearchTerm(searchControl.value);
     this.form.reset();
+    this.route.navigateByUrl('').then();
   }
 
   private initForm(): void {
