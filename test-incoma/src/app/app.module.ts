@@ -15,6 +15,7 @@ import { ListScrollerComponent } from './shared/components/list-scroller/list-sc
 import { SearchFormComponent } from './components/main-page/search-form/search-form.component';
 import { FilterFormComponent } from './shared/components/filter-form/filter-form.component';
 import { SaveFavoritesComponent } from './shared/components/save-favorites/save-favorites.component';
+import { DeleteFavoritesComponent } from './shared/components/delete-favorites/delete-favorites.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SaveFavoritesComponent } from './shared/components/save-favorites/save-
     ListScrollerComponent,
     SearchFormComponent,
     FilterFormComponent,
-    SaveFavoritesComponent
+    SaveFavoritesComponent,
+    DeleteFavoritesComponent
   ],
   imports: [
     BrowserModule,

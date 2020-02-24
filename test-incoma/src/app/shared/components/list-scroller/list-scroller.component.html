@@ -3,6 +3,7 @@
     <div *ngIf="item" class="example-item">
       <app-list-item [item]="item">
         <app-save-favorites [item]="item"></app-save-favorites>
+        <app-delete-favorites [item]="item"></app-delete-favorites>
       </app-list-item>
     </div>
     <div *ngIf="!item">
