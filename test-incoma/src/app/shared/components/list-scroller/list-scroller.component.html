@@ -1,7 +1,9 @@
 <cdk-virtual-scroll-viewport itemSize="138" class="example-viewport">
   <div *cdkVirtualFor="let item of dataSource">
     <div *ngIf="item" class="example-item">
-      <app-list-item [item]="item"></app-list-item>
+      <app-list-item [item]="item">
+        <app-save-favorites [item]="item"></app-save-favorites>
+      </app-list-item>
     </div>
     <div *ngIf="!item">
       Loading ...

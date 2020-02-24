@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PrimeNgModule } from "./prime-ng.module";
-import { ApiService } from "@api/api.service";
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
@@ -15,7 +14,7 @@ import { ListItemComponent } from './shared/components/list-item/list-item.compo
 import { ListScrollerComponent } from './shared/components/list-scroller/list-scroller.component';
 import { SearchFormComponent } from './components/main-page/search-form/search-form.component';
 import { FilterFormComponent } from './shared/components/filter-form/filter-form.component';
-import { SearchService } from "@sharedServices/search/search.service";
+import { SaveFavoritesComponent } from './shared/components/save-favorites/save-favorites.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,8 @@ import { SearchService } from "@sharedServices/search/search.service";
     ListItemComponent,
     ListScrollerComponent,
     SearchFormComponent,
-    FilterFormComponent
+    FilterFormComponent,
+    SaveFavoritesComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +36,7 @@ import { SearchService } from "@sharedServices/search/search.service";
     PrimeNgModule,
     ScrollingModule
   ],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
