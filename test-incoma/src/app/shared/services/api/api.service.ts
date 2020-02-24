@@ -4,9 +4,6 @@ import { Observable } from "rxjs";
 import { pluck } from "rxjs/operators";
 import { BookInfo, BooksList } from "@sharedModels/book-info.type";
 
-export const baseUrl = 'https://www.googleapis.com/books/v1/volumes';
-export const fields = 'items(id,saleInfo(retailPrice,buyLink),accessInfo/webReaderLink,volumeInfo(title,authors,publisher,publishedDate,language,imageLinks/smallThumbnail))';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +13,9 @@ export class ApiService {
   }
 
   public getBooksList(startIndex: number, search: string): Observable<BookInfo[]> {
-    const url = baseUrl;
+    const url = 'https://www.googleapis.com/books/v1/volumes';
+    const fields = 'items(id,saleInfo(retailPrice,buyLink),accessInfo/webReaderLink,volumeInfo(title,authors,publisher,publishedDate,language,imageLinks/smallThumbnail))';
+
     const params = new HttpParams()
       .set('q', search)
       .set('startIndex', String(startIndex))

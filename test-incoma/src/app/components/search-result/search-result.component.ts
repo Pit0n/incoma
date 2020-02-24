@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from "rxjs";
+import { filter, takeUntil } from "rxjs/operators";
 import { ListDataSource } from "../../shared/components/list-scroller/list-data-source";
 import { FilterService } from "@sharedServices/filter/filter.service";
 import { SearchService } from "@sharedServices/search/search.service";
-import { filter, takeUntil } from "rxjs/operators";
-import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-search-result',
@@ -12,7 +12,6 @@ import { Subject } from "rxjs";
 })
 export class SearchResultComponent implements OnInit, OnDestroy {
   public dataSource: ListDataSource;
-
   private unsubscribe$ = new Subject();
 
   constructor(private searchService: SearchService, private filterService: FilterService) {
@@ -32,5 +31,4 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
       this.unsubscribe$.complete();
   }
-
 }

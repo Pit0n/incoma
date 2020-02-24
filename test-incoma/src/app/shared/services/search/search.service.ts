@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from "rxjs";
-import { ApiService } from "@api/api.service";
+import { ApiService } from "@sharedServices/api/api.service";
 import { BookInfo } from "@sharedModels/book-info.type";
 import { SearchBookListInterface } from "@sharedModels/search-book-list.interface";
 

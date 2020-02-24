@@ -12,7 +12,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { ListItemComponent } from './shared/components/list-item/list-item.component';
 import { ListScrollerComponent } from './shared/components/list-scroller/list-scroller.component';
-import { SearchFormComponent } from './components/main-page/search-form/search-form.component';
+import { SearchFormComponent } from './shared/components/search-form/search-form.component';
 import { FilterFormComponent } from './shared/components/filter-form/filter-form.component';
 import { SaveFavoritesComponent } from './shared/components/save-favorites/save-favorites.component';
 import { DeleteFavoritesComponent } from './shared/components/delete-favorites/delete-favorites.component';

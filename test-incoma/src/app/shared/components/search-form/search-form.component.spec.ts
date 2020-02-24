@@ -4,6 +4,12 @@ import { SearchFormComponent } from './search-form.component';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { Router } from "@angular/router";
+
+class RouterStub {
+  navigateByUrl(url: string) {
+  }
+}
 
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;
@@ -11,12 +17,15 @@ describe('SearchFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchFormComponent ],
-      providers: [FormBuilder],
+      declarations: [SearchFormComponent],
+      providers: [
+        {provide: Router, useClass: RouterStub},
+        FormBuilder
+      ],
       imports: [HttpClientTestingModule],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

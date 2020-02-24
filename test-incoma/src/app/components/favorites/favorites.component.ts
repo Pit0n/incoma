@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 import { ListDataSource } from "../../shared/components/list-scroller/list-data-source";
 import { FilterService } from "@sharedServices/filter/filter.service";
 import { FavoritesService } from "@sharedServices/favorites/favorites.service";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: 'app-favorites',
@@ -11,13 +11,16 @@ import { takeUntil } from "rxjs/operators";
   styleUrls: ['./favorites.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FavoritesComponent implements OnDestroy {
+export class FavoritesComponent implements OnInit, OnDestroy {
   public dataSource: ListDataSource;
   private unsubscribe$ = new Subject();
 
   private updateScrollList$ = this.favoritesService.updateScrollList$;
 
   constructor(private favoritesService: FavoritesService, private filterService: FilterService) {
+  }
+
+  ngOnInit(): void {
     this.updateScrollList$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => {

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListScrollerComponent } from './list-scroller.component';
 import { NO_ERRORS_SCHEMA } from "@angular/core";
-import { ApiService } from "@api/api.service";
+import { ApiService } from "@sharedServices/api/api.service";
 import { HttpClientModule } from "@angular/common/http";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 

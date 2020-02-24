@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpClientModule } from "@angular/common/http";
-import { ApiService } from "@api/api.service";
+import { ApiService } from "@sharedServices/api/api.service";
 import { SearchResultComponent } from './search-result.component';
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
