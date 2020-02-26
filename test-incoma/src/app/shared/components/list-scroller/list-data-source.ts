@@ -7,8 +7,7 @@ import { VirtualScrollPageSize } from "../../consts/virtual-scroll-page-size.con
 
 
 export class ListDataSource extends DataSource<BookInfo | undefined> {
-  private cachedList = Array.from<BookInfo>({length: 0});
-  private dataStream$ = new BehaviorSubject<(BookInfo | undefined)[]>(this.cachedList);
+  private dataStream$ = new BehaviorSubject<(BookInfo | undefined)[]>([]);
   private unsubscribe$ = new Subject();
   private pageSize = VirtualScrollPageSize;
   private lastPage = 0;
@@ -43,10 +42,7 @@ export class ListDataSource extends DataSource<BookInfo | undefined> {
 
     this.listService.getBooksList(page)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => {
-      this.cachedList = this.cachedList.concat(res);
-      this.dataStream$.next(this.cachedList);
-    });
+      .subscribe(res => this.dataStream$.next(res));
   }
 
   private _getPageForIndex(i: number): number {
