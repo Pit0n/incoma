@@ -20,7 +20,7 @@ export class FavoritesService implements SearchBookListInterface {
   }
 
   public getBooksList = (startIndex: number): Observable<BookInfo[]> => {
-    const list = this.favoriteList.slice(startIndex, startIndex + this.pageSize);
+    const list = this.favoriteList.slice(0, startIndex + this.pageSize);
 
     return of(list);
   };
